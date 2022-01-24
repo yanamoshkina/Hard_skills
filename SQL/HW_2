@@ -1,0 +1,365 @@
+SQL_DDL_Joins
+
+Таблица employees
+
+1) Создать таблицу employees
+- id. serial,  primary key,
+- employee_name. Varchar(50), not null
+2) Наполнить таблицу employee 70 строками.
+
+create table employees(
+	id serial primary key,
+	employee_name varchar(50) not null
+	);
+
+insert into employees (employee_name)
+values ('Yana Moshkina'),
+	   ('Artiom Tatarnikov'),
+	   ('Ivan Andreev'),
+	   ('Kirill Petrov'),
+	   ('Anna Dmitrieva'),
+	   ('Irina Moshkina'),
+	   ('Yulia Gudova'),
+	   ('Lukas Fetch'),
+	   ('Mike Vazovskih'),
+	   ('Yulia Koroleva'),
+	   ('Aiza Dolmatova'),
+	   ('Hjyu Jackman'),
+	   ('Aliona Kravec'),
+	   ('Alexander Sokolov'),
+	   ('Gendalf Belyj'),
+	   ('Avril Lavigne'),
+	   ('Tina Kandalakih'),
+	   ('Vlada Kushner'),
+	   ('Ivan Moshkina'),
+	   ('Robert Chrash'),
+	   ('Svetlana Pugach'),
+	   ('Kris Magaeva'),
+	   ('Stas Mikhaylov'),
+	   ('Alexander Pushkin'),
+	   ('Vlad Nazarov'),
+	   ('Alesya Uminskaya'),
+	   ('Olga Kravchuk'),
+	   ('Danil Savin'),
+	   ('Sergey Moshkin'),
+	   ('Sergey Nevzorov'),
+	   ('Andrey Sorokin'),
+	   ('Maria Denisova'),
+	   ('Olga Petrova'),
+	   ('Anastasia Natochiy'),
+	   ('Vladimir Kulikov'),
+	   ('Natalia Krasnova'),
+	   ('Katerina Lyubimova'),
+	   ('Vladislav Baranov'),
+	   ('Alex Mitch'),
+	   ('John Pablo'),
+	   ('Bogdan Smirnov'),
+	   ('Jim Kerry'),
+	   ('Daria Vasilenko'),
+	   ('Denis Krasnov'),
+	   ('Roman Savichev'),
+	   ('Irina Zadornaya'),
+	   ('Pavel Morozov'),
+	   ('Nikita Petrov'),
+	   ('Yulia Savicheva'),
+       ('Irina Galustyan'),
+	   ('Avrora Kreiser'),
+	   ('Maxim Sobolev'),
+	   ('Inna Vodneva'),
+	   ('Artur Pivovarov'),
+	   ('Alisa Solovey'),
+	   ('Anton Hudoleev'),
+	   ('Maria Dolmatova'),
+	   ('Miroslava Karpovich'),
+	   ('John Snow'),
+	   ('Peter Parker'),
+	   ('Jack Sworrow'),
+	   ('Angelina Baranovskaya'),
+	   ('Michael Jackson'),
+	   ('Mike Pitt'),
+	   ('Awraam Lincoln'),
+	   ('Vladimir Sun'),
+	   ('Captain Black'),
+	   ('Nazar Sobolev'),
+	   ('Ruslan Andreev'),
+	   ('Olga Borisovec');
+
+	  
+Таблица salary
+
+1) Создать таблицу salary
+- id. Serial  primary key,
+- monthly_salary. Int, not null
+2) Наполнить таблицу salary 15 строками:
+- 1000
+- 1100
+- 1200
+- 1300
+- 1400
+- 1500
+- 1600
+- 1700
+- 1800
+- 1900
+- 2000
+- 2100
+- 2200
+- 2300
+- 2400
+- 2500
+
+create table salary(
+	id serial primary key,
+	monthly_salary int not null
+	);
+
+insert into salary(monthly_salary)
+values (1000),
+	   (1100),
+	   (1200),
+	   (1300),
+	   (1400),
+	   (1500),
+	   (1600),
+	   (1700),
+	   (1800),
+	   (1900),
+	   (2000),
+	   (2100),
+	   (2200),
+	   (2300),
+	   (2400),
+	   (2500);
+
+Таблица employee_salary
+
+1) Создать таблицу employee_salary
+- id. Serial  primary key,
+- employee_id. Int, not null, unique
+- salary_id. Int, not null
+2) Наполнить таблицу employee_salary 40 строками:
+- в 10 строк из 40 вставить несуществующие employee_id
+
+	  
+	  create table employee_salary(
+	  	id serial primary key,
+	  	employee_id Int not null unique,
+	  	salary_id  Int not null
+	  );
+	  
+	 insert into employee_salary(employee_id, salary_id) 
+	 values (4, 1),
+	 	    (5, 2),
+	 	    (6, 3),
+	 	    (7, 4),
+	 	    (8, 5),
+	 	    (9, 6),
+	 	    (10, 7),
+	 	    (11, 8),
+	 	    (12, 9),
+	 	    (13, 10),
+	 	    (14, 11),
+	 	    (15, 12),
+	 	    (16, 13),
+	 	    (17, 14),
+	 	    (18, 15),
+	 	    (19, 9),
+	 	    (20, 7),
+	 	    (21, 5),
+	 	    (22, 3),
+	 	    (23, 11),
+	 	    (24, 4),
+	 	    (25, 13),
+	 	    (26, 12),
+	 	    (27, 8),
+	 	    (28, 6),
+	 	    (29, 15),
+	 	    (30, 14),
+	 	    (31, 8),
+	 	    (32, 13),
+	 	    (33, 4),
+	 	    (187, 7),
+	 	    (156, 8),
+	 	    (987, 9),
+	 	    (531, 10),
+	 	    (78, 11),
+	 	    (79, 12),
+	 	    (178, 13),
+	 	    (675, 14),
+	 	    (345, 15),
+	 	    (92, 1);
+	  
+
+Таблица roles
+
+1) Создать таблицу roles
+- id. Serial  primary key,
+- role_name. int, not null, unique
+2) Поменять тип столба role_name с int на varchar(30)
+3) Наполнить таблицу roles 20 строками:
+
+idrole_name1Junior Python developer2Middle Python developer3Senior Python developer4Junior Java developer5Middle Java developer6Senior Java developer7Junior JavaScript developer8Middle JavaScript developer9Senior JavaScript developer10Junior Manual QA engineer11Middle Manual QA engineer12Senior Manual QA engineer13Project Manager14Designer15HR16CEO17Sales manager18Junior Automation QA engineer19Middle Automation QA engineer20Senior Automation QA engineer
+
+create table roles( 
+	id serial primary key,
+	role_name int not null unique
+);
+
+alter table roles
+	alter column role_name type varchar(30);
+
+insert into roles(role_name)
+values ('Junior Python Developer'),
+	   ('Middle Python Developer'),
+	   ('Senior Python Developer'),
+	   ('Junior Java Developer'),
+	   ('Middle Java Developer'),
+	   ('Senior Java Developer'),
+	   ('Junior JavaScript Developer'),
+	   ('Middle JavaScript Developer'),
+	   ('Senior JavaScript Developer'),
+	   ('Junior Manual QA engineer'),
+	   ('Middle Manual QA engineer'),
+	   ('Senior Manual QA engineer'),
+	   ('Project Manager'),
+	   ('Designer'),
+	   ('HR'),
+	   ('CEO'),
+	   ('Sales Manager'),
+	   ('Junior Automation QA engineer'),
+	   ('Middle Automation QA engineer'),
+	   ('Senior Automation QA engineer');
+	  
+
+Таблица roles_employee
+
+1) Создать таблицу roles_employee
+- id. Serial  primary key,
+- employee_id. Int, not null, unique (внешний ключ для таблицы employees, поле id)
+- role_id. Int, not null (внешний ключ для таблицы roles, поле id)
+2) Наполнить таблицу roles_employee 40 строками:
+
+
+
+	  create table roles_employee(
+	  	id serial primary key,
+	  	employee_id Int not null unique,
+	  	role_id Int not null,
+	  	foreign key (employee_id)
+	  		references employees(id),
+	  	foreign key (role_id)
+	  	references roles(id)
+	  	
+	  );
+	 
+	 insert into roles_employee(employee_id, role_id )
+	 values (7, 2),
+	 	    (8, 3),
+	 	    (20, 4),
+	 	    (15, 8),
+	 	    (14, 5),
+	 	    (16, 6),
+	 	    (17, 9),
+	 	    (18, 10),
+	 	    (19, 11),
+	 	    (21, 12),
+	 	    (22, 13),
+	 	    (23, 14),
+	 	    (25, 15),
+	 	    (41, 14),
+	 	    (27, 7),
+	 	    (34, 8),
+	 	    (33, 1),
+	 	    (32, 2),
+	 	    (31, 3),
+	 	    (30, 4),
+	 	    (29, 5),
+	 	    (28, 6),
+	 	    (40, 7),
+	 	    (26, 8),
+	 	    (42, 9),
+	 	    (24, 10),
+	 	    (1, 11),
+	 	    (2, 12),
+	 	    (3, 13),
+	 	    (4, 14),
+	 	    (5, 15),
+	 	    (6, 14),
+	 	    (9, 13),
+	 	    (10, 12),
+	 	    (11, 11),
+	 	    (12, 10),
+	 	    (13, 9),
+	 	    (39, 8),
+	 	    (38, 7),
+	 	    (37, 6),
+	 	    (36, 5);
+	 	   
+Таблица devices
+
+1) Создать таблицу devices
+- id. Serial  primary key,
+- employee_id. Int, not null, unique (внешний ключ для таблицы employees, поле id)
+- role_id. Int, not null (внешний ключ для таблицы roles, поле id)
+2) Наполнить таблицу roles_employee 40 строками:
+
+
+create table devices( 
+	id serial primary key,
+	employee_id Int not null unique,
+	role_id Int not null,
+	foreign key (employee_id)
+		references employees(id),
+	foreign key (role_id)
+		references roles(id)
+);
+
+insert into devices(employee_id, role_id )
+values      (7, 2),
+	 	    (8, 7),
+	 	    (20, 6),
+	 	    (15, 8),
+	 	    (14, 5),
+	 	    (16, 10),
+	 	    (17, 9),
+	 	    (18, 12),
+	 	    (19, 11),
+	 	    (21, 12),
+	 	    (22, 13),
+	 	    (23, 8),
+	 	    (25, 15),
+	 	    (41, 5),
+	 	    (27, 7),
+	 	    (34, 8),
+	 	    (33, 1),
+	 	    (32, 2),
+	 	    (31, 3),
+	 	    (30, 9),
+	 	    (29, 5),
+	 	    (28, 6),
+	 	    (40, 7),
+	 	    (26, 8),
+	 	    (42, 9),
+	 	    (24, 10),
+	 	    (1, 11),
+	 	    (2, 12),
+	 	    (3, 15),
+	 	    (4, 8),
+	 	    (5, 15),
+	 	    (6, 14),
+	 	    (9, 13),
+	 	    (10, 12),
+	 	    (11, 11),
+	 	    (12, 10),
+	 	    (13, 9),
+	 	    (39, 11),
+	 	    (38, 7),
+	 	    (37, 6),
+	 	    (35, 8);
+	 	    
+	   
+
+
+
+select * from devices
+order by id asc;
